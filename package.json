@@ -1,0 +1,27 @@
+{
+  "name": "mans-best-friend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/chrisaguilar/mans-best-friend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/chrisaguilar/mans-best-friend/issues"
+  },
+  "homepage": "https://gitlab.com/chrisaguilar/mans-best-friend#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.15.2",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "objection": "^1.4.0"
+  }
+}
