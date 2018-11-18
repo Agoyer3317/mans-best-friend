@@ -1,38 +1,40 @@
 exports.up = function(knex, Promise) {
     return Promise.all([
-        knex.schema.hasTable('pet_info').then(
+        knex.schema.hasTable('pet').then(
+            // If the table does not currently exist
+            // Then create the table with the specified properties
             (exists) =>
                 !exists &&
-                knex.schema.createTable('pet_info', (table) => {
+                knex.schema.createTable('pet', (table) => {
                     table.increments('id').primary();
 
                     // Timestamps
                     table.timestamp('created_at').defaultTo(knex.raw('CURRENT_TIMESTAMP'));
                     table.timestamp('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
-                    //  -   **FK:** Species ID
-                    //  -   **FK:** SubSpecies ID
-                    //  -   Photo
+                    // General Information
+                    // Name
+                    table.string('name').notNullable();
 
-                    //General Information
-                    // DOB
-                    table.date('d_o_b');
+                    // Date of Birth
+                    table.date('date_of_birth');
 
                     // Weight
                     table.integer('weight', 100).unsigned();
 
                     // Bio
-                    table.string('bio', 255);
+                    table.text('bio', 'mediumtext');
 
                     // Link to Photo
                     table.text('photo_url', 'longtext');
 
                     // Foreign Keys
-                    // Define Column
+                    table
+                        .integer('owner_id')
+                        // No negative numbers
+                        .unsigned()
+                        .notNullable();
 
-                    // Specify as foreign key
-
-                    // The foreign key `species_id` references the `id` column in the `species` table
                     table
                         .integer('species_id')
                         .unsigned()
@@ -43,9 +45,16 @@ exports.up = function(knex, Promise) {
                         .unsigned()
                         .notNullable();
 
-                    // Specify as foreign key
+                    table
+                        .integer('breed_id')
+                        .unsigned()
+                        .notNullable();
 
-                    // The foreign key `species_id` references the `id` column in the `species` table
+                    table
+                        .foreign('owner_id')
+                        .references('id')
+                        .inTable('user');
+
                     table
                         .foreign('species_id')
                         .references('id')
@@ -55,11 +64,16 @@ exports.up = function(knex, Promise) {
                         .foreign('sub_species_id')
                         .references('id')
                         .inTable('sub_species');
+
+                    table
+                        .foreign('breed_id')
+                        .references('id')
+                        .inTable('breed');
                 })
         )
     ]);
 };
 
 exports.down = function(knex, Promise) {
-    return Promise.all([knex.schema.dropTableIfExists('pet_info')]);
+    return Promise.all([knex.schema.dropTableIfExists('pet')]);
 };

@@ -1,9 +1,9 @@
 exports.up = function(knex, Promise) {
     return Promise.all([
-        knex.schema.hasTable('sub_species').then(
+        knex.schema.hasTable('breed').then(
             (exists) =>
                 !exists &&
-                knex.schema.createTable('sub_species', (table) => {
+                knex.schema.createTable('breed', (table) => {
                     table.increments('id').primary();
 
                     // Timestamps
@@ -18,5 +18,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-    return Promise.all([knex.schema.dropTableIfExists('sub_species')]);
+    return Promise.all([knex.schema.dropTableIfExists('breed')]);
 };

@@ -1,10 +1,9 @@
 exports.up = function(knex, Promise) {
     return Promise.all([
-        knex.schema.hasTable('users').then(
+        knex.schema.hasTable('sub_species').then(
             (exists) =>
                 !exists &&
-                knex.schema.createTable('users', (table) => {
-                    // ID (primary key)
+                knex.schema.createTable('sub_species', (table) => {
                     table.increments('id').primary();
 
                     // Timestamps
@@ -12,15 +11,12 @@ exports.up = function(knex, Promise) {
                     table.timestamp('updated_at').defaultTo(knex.raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
 
                     // General Information
-                    table.string('email', 255).notNullable();
-                    table.string('username', 255).notNullable();
-                    table.string('first_name', 255).notNullable();
-                    table.string('last_name', 255).notNullable();
+                    table.string('type', 255).notNullable();
                 })
         )
     ]);
 };
 
 exports.down = function(knex, Promise) {
-    return Promise.all([knex.schema.dropTableIfExists('users')]);
+    return Promise.all([knex.schema.dropTableIfExists('sub_species')]);
 };
