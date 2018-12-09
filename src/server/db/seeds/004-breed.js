@@ -8,6 +8,9 @@ exports.seed = function(knex, Promise) {
                 },
                 {
                     breed: 'weimaraner'
+                },
+                {
+                    breed: 'Orange Tabby'
                 }
             ]);
         });

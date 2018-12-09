@@ -1,43 +1,44 @@
 const router = require('express').Router();
-const User = require('../../db/models/User');
+const Pet = require('../../db/models/Pet');
 
 // Find all Authors and return them to the user with res.json
-// GET /api/users
+// GET /api/pet
 router.get('/', function(req, res) {
     // Query the User table in the database
-    User.query()
-        .eager('[pets]')
+    Pet.query()
+        .eager('[owner, species, subspecies, breed]')
         .then((data) => {
-            // Return the users as the response
+            // Return the pet as the response
             res.json(data);
         });
 });
 
-// GET /api/users/:id
+// GET /api/pet/:id
 router.get('/:id', function(req, res) {
-    User.query()
+    Pet.query()
         .where('id', req.params.id)
-        .eager('[pets]')
+        .eager('[owner, species, subspecies, breed]')
         .then((data) => res.json(data));
 });
 
-// POST /api/users
+// POST /api/pet
 router.post('/', function(req, res) {
-    User.query()
+    Pet.query()
         .insert(req.body)
         .then((data) => res.json(data));
 });
 
-// PATCH /api/users/:id
+// PATCH /api/pet/:id
 router.patch('/:id', function(req, res) {
-    User.query()
+    Pet.query()
         .patchAndFetchById(req.params.id, req.body)
+        .eager('[owner, species, subspecies, breed]')
         .then((data) => res.json(data));
 });
 
-// DELETE /api/users/:id
+// DELETE /api/pet/:id
 router.delete('/:id', function(req, res) {
-    User.query()
+    Pet.query()
         .deleteById(req.params.id)
         .then((numDeleted) => res.json({ numberOfRowsDeleted: numDeleted }));
 });

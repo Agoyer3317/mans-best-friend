@@ -1,11 +1,4 @@
 const { Model } = require('objection');
-const Breed = require('./Breed');
-const HabitLog = require('./HabitLog');
-const Pet = require('./Pet');
-const Species = require('./Species');
-const SubSpecies = require('./SubSpecies');
-const User = require('./User');
-const Vet = require('./Vet');
 
 class Pet extends Model {
     static get tableName() {
@@ -17,6 +10,13 @@ class Pet extends Model {
     }
 
     static get relationMappings() {
+        const Breed = require('./Breed');
+        const HabitLog = require('./HabitLog');
+        const Species = require('./Species');
+        const SubSpecies = require('./SubSpecies');
+        const User = require('./User');
+        const VetInfo = require('./VetInfo');
+
         return {
             owner: {
                 relation: Model.BelongsToOneRelation,

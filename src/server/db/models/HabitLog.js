@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 
-class User extends Model {
+class HabitLog extends Model {
     static get tableName() {
         return 'habit_log';
     }

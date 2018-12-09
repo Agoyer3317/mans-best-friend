@@ -1,43 +1,40 @@
 const router = require('express').Router();
-const User = require('../../db/models/User');
+const Species = require('../../db/models/Species');
 
 // Find all Authors and return them to the user with res.json
-// GET /api/users
+// GET /api/species
 router.get('/', function(req, res) {
     // Query the User table in the database
-    User.query()
-        .eager('[pets]')
-        .then((data) => {
-            // Return the users as the response
-            res.json(data);
-        });
+    Species.query().then((data) => {
+        // Return the species as the response
+        res.json(data);
+    });
 });
 
-// GET /api/users/:id
+// GET /api/species/:id
 router.get('/:id', function(req, res) {
-    User.query()
+    Species.query()
         .where('id', req.params.id)
-        .eager('[pets]')
         .then((data) => res.json(data));
 });
 
-// POST /api/users
+// POST /api/species
 router.post('/', function(req, res) {
-    User.query()
+    Species.query()
         .insert(req.body)
         .then((data) => res.json(data));
 });
 
-// PATCH /api/users/:id
+// PATCH /api/species/:id
 router.patch('/:id', function(req, res) {
-    User.query()
+    Species.query()
         .patchAndFetchById(req.params.id, req.body)
         .then((data) => res.json(data));
 });
 
-// DELETE /api/users/:id
+// DELETE /api/species/:id
 router.delete('/:id', function(req, res) {
-    User.query()
+    Species.query()
         .deleteById(req.params.id)
         .then((numDeleted) => res.json({ numberOfRowsDeleted: numDeleted }));
 });

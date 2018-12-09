@@ -1,6 +1,6 @@
 const { Model } = require('objection');
 
-class User extends Model {
+class SubSpecies extends Model {
     static get tableName() {
         return 'sub_species';
     }

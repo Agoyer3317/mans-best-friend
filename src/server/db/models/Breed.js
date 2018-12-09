@@ -1,8 +1,8 @@
 const { Model } = require('objection');
 
-class User extends Model {
+class Breed extends Model {
     static get tableName() {
-        return 'species';
+        return 'breed';
     }
 
     static get idColumn() {
@@ -10,4 +10,4 @@ class User extends Model {
     }
 }
 
-module.exports = Species;
+module.exports = Breed;

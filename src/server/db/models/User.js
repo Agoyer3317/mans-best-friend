@@ -9,6 +9,21 @@ class User extends Model {
         return 'id';
     }
 
+    static get relationMappings() {
+        const Pet = require('./pet');
+
+        return {
+            pets: {
+                relation: Model.HasManyRelation,
+                modelClass: Pet,
+                join: {
+                    from: 'user.id',
+                    to: 'pet.owner_id'
+                }
+            }
+        };
+    }
+
     static get jsonSchema() {
         return {
             type: 'object',
@@ -18,7 +33,6 @@ class User extends Model {
                 created_at: { type: 'string' },
                 update_at: { type: 'string' },
                 email: { type: 'string', minLength: 1, maxLength: 255 },
-                username: { type: 'string', minLength: 1, maxLength: 255 },
                 first_name: { type: 'string', minLength: 1, maxLength: 255 },
                 last_name: { type: 'string', minLength: 1, maxLength: 255 }
             }

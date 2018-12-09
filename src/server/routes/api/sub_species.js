@@ -1,43 +1,40 @@
 const router = require('express').Router();
-const User = require('../../db/models/User');
+const SubSpecies = require('../../db/models/SubSpecies');
 
 // Find all Authors and return them to the user with res.json
-// GET /api/users
+// GET /api/subspecies
 router.get('/', function(req, res) {
     // Query the User table in the database
-    User.query()
-        .eager('[pets]')
-        .then((data) => {
-            // Return the users as the response
-            res.json(data);
-        });
+    SubSpecies.query().then((data) => {
+        // Return the subspecies as the response
+        res.json(data);
+    });
 });
 
-// GET /api/users/:id
+// GET /api/subspecies/:id
 router.get('/:id', function(req, res) {
-    User.query()
+    SubSpecies.query()
         .where('id', req.params.id)
-        .eager('[pets]')
         .then((data) => res.json(data));
 });
 
-// POST /api/users
+// POST /api/subspecies
 router.post('/', function(req, res) {
-    User.query()
+    SubSpecies.query()
         .insert(req.body)
         .then((data) => res.json(data));
 });
 
-// PATCH /api/users/:id
+// PATCH /api/subspecies/:id
 router.patch('/:id', function(req, res) {
-    User.query()
+    SubSpecies.query()
         .patchAndFetchById(req.params.id, req.body)
         .then((data) => res.json(data));
 });
 
-// DELETE /api/users/:id
+// DELETE /api/subspecies/:id
 router.delete('/:id', function(req, res) {
-    User.query()
+    SubSpecies.query()
         .deleteById(req.params.id)
         .then((numDeleted) => res.json({ numberOfRowsDeleted: numDeleted }));
 });

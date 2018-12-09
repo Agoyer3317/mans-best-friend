@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
             return knex('pet').insert([
                 {
                     name: 'Oogie',
-                    date_of_birth: '1/1/2018',
+                    date_of_birth: '4/21/2017',
                     weight: 15,
                     bio: 'n/a',
                     photo_url: 'n/a',
@@ -13,6 +13,17 @@ exports.seed = function(knex, Promise) {
                     species_id: 1,
                     sub_species_id: 1,
                     breed_id: 1
+                },
+                {
+                    name: 'Simon',
+                    date_of_birth: '4/21/2017',
+                    weight: 15,
+                    bio: 'n/a',
+                    photo_url: 'n/a',
+                    owner_id: 1,
+                    species_id: 1,
+                    sub_species_id: 1,
+                    breed_id: 3
                 },
                 {
                     name: 'Luna',
