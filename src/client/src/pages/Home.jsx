@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Typography } from '@material-ui/core';
 
-class Home extends Component {
+export class Home extends React.Component {
     render() {
         return (
             <>
@@ -10,5 +10,3 @@ class Home extends Component {
         );
     }
 }
-
-export default Home;

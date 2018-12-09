@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
-import heroImage from '../../public/assets/IMG_0306.jpeg';
+import heroImage from '../assets/IMG_0306.jpeg';
 
 const styles = {
     heroImage: {
-        backgroundImage: heroImage
+        backgroundImage: `url(${heroImage})`
     }
 };
 

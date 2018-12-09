@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Pet_Home extends Component {
+export class PetHome extends React.Component {
     render() {
         return (
             <div>
@@ -9,5 +9,3 @@ class Pet_Home extends Component {
         );
     }
 }
-
-export default Pet_Home;

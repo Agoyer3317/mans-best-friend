@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Sign_Up_In extends Component {
+export class SignUpIn extends React.Component {
     render() {
         return (
             <div>
@@ -9,5 +9,3 @@ class Sign_Up_In extends Component {
         );
     }
 }
-
-export default Sign_Up_In;

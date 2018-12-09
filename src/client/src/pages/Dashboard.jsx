@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
-import { NavigationBar } from './components/NavigationBar';
+import React from 'react';
 import { Jumbotron } from '../components/Jumbotron';
 
-class Dashboard extends Component {
+export class Dashboard extends React.Component {
     render() {
         return (
             <div>
-                <NavigationBar />
                 <Jumbotron />
                 <h1>Dashboard</h1>
             </div>
         );
     }
 }
-
-export default Dashboard;
