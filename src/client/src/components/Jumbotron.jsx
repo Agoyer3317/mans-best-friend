@@ -1,25 +1,28 @@
 import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
 import React from 'react';
 import heroImage from '../assets/images/luna.jpeg';
+import { AvatarDashboard } from '../components/AvatarDashboard';
 
 const styles = {
     heroImage: {
         backgroundImage: `url(${heroImage})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        height: 400
     }
 };
 
 const Jumbotron = (props) => (
     <Paper className={props.classes.heroImage}>
         <Grid container>
-            <Grid item md={6}>
+            <Grid item md={3}>
                 <div>
-                    <Typography component="h1" variant="h3" color="inherit" gutterBottom>
-                        Title of a longer featured blog post
-                    </Typography>
+                    <AvatarDashboard />
+                </div>
+            </Grid>
+            <Grid item md={3}>
+                <div>
                     <Typography variant="h5" color="inherit" paragraph>
-                        Multiple lines of text that form the lede, informing new readers quickly and efficiently about
-                        what&apos;s most interesting in this post&apos;s contents…
+                        Allison Scollan
                     </Typography>
                 </div>
             </Grid>

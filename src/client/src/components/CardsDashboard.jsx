@@ -12,9 +12,7 @@ import React from 'react';
 import reptile from '../assets/images/reptile.jpg';
 
 const styles = {
-    card: {
-        maxWidth: 345
-    },
+    card: {},
     media: {
         height: 140
     }
@@ -28,7 +26,7 @@ function CardsDashboard(props) {
                 <CardMedia className={classes.media} image={reptile} title="Contemplative Reptile" />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                        Lizard
+                        {props.name}
                     </Typography>
                     <Typography component="p">
                         Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all
