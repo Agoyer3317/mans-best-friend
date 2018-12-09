@@ -1,10 +1,11 @@
 import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
 import React from 'react';
-import heroImage from '../assets/IMG_0306.jpeg';
+import heroImage from '../assets/images/luna.jpeg';
 
 const styles = {
     heroImage: {
-        backgroundImage: `url(${heroImage})`
+        backgroundImage: `url(${heroImage})`,
+        backgroundSize: 'cover'
     }
 };
 
@@ -26,5 +27,7 @@ const Jumbotron = (props) => (
     </Paper>
 );
 
+// styles = styles object on line 5
+// Jumbotron = Component definition on line 12
 const Component = withStyles(styles)(Jumbotron);
 export { Component as Jumbotron };

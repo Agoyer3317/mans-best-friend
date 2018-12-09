@@ -1,11 +1,12 @@
+import { Typography } from '@material-ui/core';
 import React from 'react';
 
 export class Settings extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Settings</h1>
-            </div>
+            <>
+                <Typography variant="h1">Settings</Typography>
+            </>
         );
     }
 }

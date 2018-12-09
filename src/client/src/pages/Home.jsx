@@ -5,7 +5,7 @@ export class Home extends React.Component {
     render() {
         return (
             <>
-                <Typography variant="h1">Hello, World</Typography>
+                <Typography variant="h1">Home</Typography>
             </>
         );
     }
