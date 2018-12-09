@@ -1,5 +1,5 @@
-import React from 'react';
 import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
+import React from 'react';
 import heroImage from '../assets/IMG_0306.jpeg';
 
 const styles = {

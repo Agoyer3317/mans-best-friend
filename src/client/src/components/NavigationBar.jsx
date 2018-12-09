@@ -1,6 +1,6 @@
-import React from 'react';
-import { withStyles, AppBar, Toolbar, Typography, Button, IconButton } from '@material-ui/core';
+import { AppBar, Button, IconButton, Toolbar, Typography, withStyles } from '@material-ui/core';
 import { Menu } from '@material-ui/icons';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const styles = {
