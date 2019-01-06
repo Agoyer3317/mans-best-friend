@@ -1,9 +1,9 @@
-import { Grid, Typography, withStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { CardsDashboard } from '../components/CardsDashboard';
-import { Jumbotron } from '../components/Jumbotron';
-
-const pets = ['Luna', 'Oogie', 'Simon', 'Nemo', 'Kitty', 'Daisy', 'Luna', 'Oogie', 'Simon', 'Nemo', 'Kitty', 'Daisy'];
+import { DashboardCard } from '../components/dashboard/Card';
+import { Jumbotron } from '../components/dashboard/Jumbotron';
 
 const styles = {
     gridRoot: {
@@ -15,19 +15,21 @@ const styles = {
 class Dashboard extends React.Component {
     render() {
         return (
-            <>
-                <Jumbotron />
-                <Typography variant="h1">Dashboard</Typography>
-                <div className={this.props.classes.gridRoot}>
-                    <Grid container spacing={40}>
-                        {pets.map((e, i) => (
-                            <Grid item md={4} sm={12} key={i}>
-                                <CardsDashboard name={e} />
-                            </Grid>
-                        ))}
-                    </Grid>
-                </div>
-            </>
+            this.props.user && (
+                <>
+                    <Jumbotron userName={`${this.props.user.first_name} ${this.props.user.last_name}`} />
+                    <Typography variant="h1">Dashboard</Typography>
+                    <div className={this.props.classes.gridRoot}>
+                        <Grid container spacing={40}>
+                            {this.props.user.pets.map((pet) => (
+                                <Grid item md={4} sm={12} key={pet.id}>
+                                    <DashboardCard id={pet.id} name={pet.name} />
+                                </Grid>
+                            ))}
+                        </Grid>
+                    </div>
+                </>
+            )
         );
     }
 }

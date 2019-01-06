@@ -16,7 +16,7 @@ router.get('/', function(req, res) {
 // GET /api/users/:id
 router.get('/:id', function(req, res) {
     User.query()
-        .where('id', req.params.id)
+        .findById(req.params.id)
         .eager('[pets]')
         .then((data) => res.json(data));
 });

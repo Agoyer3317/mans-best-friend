@@ -1,7 +1,10 @@
-import { Grid, Paper, Typography, withStyles } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import heroImage from '../assets/images/luna.jpeg';
-import { AvatarDashboard } from '../components/AvatarDashboard';
+import heroImage from '../../assets/images/luna.jpeg';
+import { Avatar } from './Avatar';
 
 const styles = {
     heroImage: {
@@ -16,13 +19,13 @@ const Jumbotron = (props) => (
         <Grid container>
             <Grid item md={3}>
                 <div>
-                    <AvatarDashboard />
+                    <Avatar />
                 </div>
             </Grid>
             <Grid item md={3}>
                 <div>
                     <Typography variant="h5" color="inherit" paragraph>
-                        Allison Scollan
+                        {props.userName}
                     </Typography>
                 </div>
             </Grid>

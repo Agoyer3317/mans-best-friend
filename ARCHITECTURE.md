@@ -146,9 +146,9 @@ After creating migrations, create your seed files and then run `npx knex seed:ru
     - email, first+last name, password
 - Dashboard
     - User should see their beautiful visage
-    - User should see a list of their ugly pets
+    ⭐ User should see a list of their ugly pets
         - Each pet should have their ugly face
-        - Each pet should have its name
+        ⭐ Each pet should have its name
         - User should be able to click on the pet's name to get to its page
     - User should be able to add a pet
         - The 'Add a Pet' functionality is a modal

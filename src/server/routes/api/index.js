@@ -11,9 +11,9 @@ const vetInfo = require('./vet_info');
 
 // Mount the `users` router to the `/users` path
 router.use('/users', user);
-router.use('/breed', breed);
-router.use('/habit_log', habitLog);
-router.use('/pet', pet);
+router.use('/breeds', breed);
+router.use('/habit_logs', habitLog);
+router.use('/pets', pet);
 router.use('/species', species);
 router.use('/sub_species', subSpecies);
 router.use('/vet_info', vetInfo);

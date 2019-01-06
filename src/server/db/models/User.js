@@ -10,7 +10,7 @@ class User extends Model {
     }
 
     static get relationMappings() {
-        const Pet = require('./pet');
+        const Pet = require('./Pet');
 
         return {
             pets: {

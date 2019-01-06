@@ -1,5 +1,6 @@
-import { Avatar, Grid, withStyles } from '@material-ui/core';
-import PropTypes from 'prop-types';
+import Avatar from '@material-ui/core/Avatar';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles';
 import React from 'react';
 
 const styles = {
@@ -10,6 +11,9 @@ const styles = {
     }
 };
 
+/**
+ * @param {{ classes: { bigAvatar: string } }} props
+ */
 function AvatarDashboard(props) {
     const { classes } = props;
     return (
@@ -19,9 +23,5 @@ function AvatarDashboard(props) {
     );
 }
 
-AvatarDashboard.propTypes = {
-    classes: PropTypes.object.isRequired
-};
-
 const Component = withStyles(styles)(AvatarDashboard);
-export { Component as AvatarDashboard };
+export { Component as Avatar };

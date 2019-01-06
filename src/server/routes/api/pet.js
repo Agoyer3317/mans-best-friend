@@ -2,7 +2,7 @@ const router = require('express').Router();
 const Pet = require('../../db/models/Pet');
 
 // Find all Authors and return them to the user with res.json
-// GET /api/pet
+// GET /api/pets
 router.get('/', function(req, res) {
     // Query the User table in the database
     Pet.query()
@@ -13,22 +13,22 @@ router.get('/', function(req, res) {
         });
 });
 
-// GET /api/pet/:id
+// GET /api/pets/:id
 router.get('/:id', function(req, res) {
     Pet.query()
-        .where('id', req.params.id)
+        .findById(req.params.id)
         .eager('[owner, species, subspecies, breed]')
         .then((data) => res.json(data));
 });
 
-// POST /api/pet
+// POST /api/pets
 router.post('/', function(req, res) {
     Pet.query()
         .insert(req.body)
         .then((data) => res.json(data));
 });
 
-// PATCH /api/pet/:id
+// PATCH /api/pets/:id
 router.patch('/:id', function(req, res) {
     Pet.query()
         .patchAndFetchById(req.params.id, req.body)
@@ -36,7 +36,7 @@ router.patch('/:id', function(req, res) {
         .then((data) => res.json(data));
 });
 
-// DELETE /api/pet/:id
+// DELETE /api/pets/:id
 router.delete('/:id', function(req, res) {
     Pet.query()
         .deleteById(req.params.id)
