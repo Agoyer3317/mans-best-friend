@@ -151,6 +151,10 @@ After creating migrations, create your seed files and then run `npx knex seed:ru
         ⭐ Each pet should have its name
         - User should be able to click on the pet's name to get to its page
     - User should be able to add a pet
+        - The user should be able to click an "Add" button that will trigger an action to add a pet.
+            - At first, this action should add a "default" pet.
+                
+            - In the end, it should open a modal in which the user will enter their pet's information.
         - The 'Add a Pet' functionality is a modal
         - Inside the modal the user should be able to add the pet's name and picture
         - User should be able to add additional information
